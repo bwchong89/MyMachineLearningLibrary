@@ -1,6 +1,6 @@
 from LogisticRegression import LogisticRegression
 import numpy as np
-
+#this is a comment
 '''
 #Testing Sigmoid function
 x = 100
