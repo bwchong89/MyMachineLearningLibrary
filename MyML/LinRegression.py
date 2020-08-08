@@ -6,7 +6,7 @@ class LinReg:
     def __init__(self):
         self.w = []
         self.b = 0
-        self.loss = [] #loss
+        self.cost = []
 
     def closed_form_fit(self, x, y):
         '''
@@ -38,8 +38,14 @@ class LinReg:
         for i in range(iterations):
             y_hat = np.dot(x.reshape(m, n), self.w) + self.b
             error = y_hat - y.reshape(m, 1)
+
+            if i % (iterations // 10) == 0:
+                MSE = (1/m) * (np.dot(error.T, error))
+                self.cost.append(MSE)
+
             dw = (1 / m) * np.dot(x.T, error)
             db = (1 / m) * np.sum(error)
+
             if regularization == "none":
                 self.w -= np.multiply(alpha, dw)
                 self.b -= np.multiply(alpha, db)
@@ -47,7 +53,10 @@ class LinReg:
                 self.w -= np.multiply(alpha, dw) + lambd/m * np.multiply(self.w, self.w)
                 self.b -= np.multiply(alpha, db)
             else:
-                print("Please choose either L2 or None for regularization")
+                print("Please choose either L2 or none for regularization")
+
+        MSE = (1 / m) * (np.dot(error.T, error))
+        self.cost.append(MSE)
 
     def predict(self, x):
         return np.dot(x, self.w) + self.b
