@@ -8,7 +8,7 @@ class LogisticRegression:
         self.b = 0
         self.cost = []
 
-    def sigmoid(x):
+    def sigmoid(x): #
         return 1/(1+np.exp(-x))
 
     def logistic_reg_fit(self, x, y, alpha=0.00001, iterations=10000, regularization="none", lambd=0):
