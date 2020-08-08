@@ -6,7 +6,7 @@ class LinReg:
     def __init__(self):
         self.w = []
         self.b = 0
-        self.loss = []
+        self.loss = [] #loss
 
     def closed_form_fit(self, x, y):
         '''
