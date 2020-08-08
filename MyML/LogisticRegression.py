@@ -16,6 +16,7 @@ class LogisticRegression:
         self.w = np.zeros((n, 1))
         self.b = 0
         y = y.reshape(m, 1)
+
         for i in range(iterations):
             z = np.dot(x.reshape(m, n), self.w.reshape(n, 1)) + self.b
             y_hat = LogisticRegression.sigmoid(z).reshape(m, 1)

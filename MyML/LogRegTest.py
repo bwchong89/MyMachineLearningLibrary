@@ -1,7 +1,7 @@
 from LogisticRegression import LogisticRegression
 import numpy as np
-#this is a comment
-'''
+
+
 #Testing Sigmoid function
 x = 100
 print(LogisticRegression.sigmoid(x))
@@ -12,8 +12,7 @@ print(list(map(LogisticRegression.sigmoid, x)))
 x = np.array([i for i in range(-10,10)]).reshape(20,1)
 print(x)
 print(np.where(LogisticRegression.sigmoid(x) >= .5, 1, 0))
-'''
-'''
+
 x = np.array([50,-50])
 z = np.array((2*x + 5))
 
@@ -24,8 +23,8 @@ myLogReg.logistic_reg_fit(x, y)
 print(y)
 print("my coeff")
 myLogReg.get_coeff()
-myLogReg.predict(np.array([50,-50]))
-'''
+myLogReg.predict(np.array([50, -50]))
+
 
 # Testing single variable logistic regression
 #x = np.array([i for i in range(1, 16)])
